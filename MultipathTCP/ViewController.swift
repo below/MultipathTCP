@@ -117,8 +117,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     @IBAction func send() {
+        self.resultLabel.text = ""
         let t = pickerView.selectedRow(inComponent: 0)
         if let type = URLSessionConfiguration.MultipathServiceType(rawValue: t) {
+            self.resultLabel.text = "Loading …"
             self.loadWithMultipathServiceType(type) { (stats, error) in
                 var text = "❌ No Multipath Connection"
                 var scheduler = ""
