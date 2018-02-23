@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func loadWithMultipathServiceType ( _ type : URLSessionConfiguration.MultipathServiceType, handler:@escaping (MPTCPStats?, Error?) -> Void) {
         let urlString = "http://amiusingmptcp.de/v1/check_connection"
         
-        let sessionConfiguration = URLSessionConfiguration.default
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
         sessionConfiguration.multipathServiceType = type
         let session = URLSession(configuration: sessionConfiguration)
         let url = URL(string: urlString)!
